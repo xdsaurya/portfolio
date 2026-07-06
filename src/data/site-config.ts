@@ -1,5 +1,5 @@
 // Central place for contact links & site metadata.
-// Update the placeholder URLs below with your real profiles.
+// Update siteUrl/domain once the site is live on its final domain.
 export const siteConfig = {
   name: "Saurabh Bhatt",
   title: "GenAI & MERN Stack Developer",
@@ -8,9 +8,8 @@ export const siteConfig = {
   yearsExperience: "3.4",
   company: "HestaBit Technologies",
   email: "xdsaurya@gmail.com",
-  // TODO: replace with your real profile URLs
-  linkedin: "https://www.linkedin.com/in/saurabh-bhatt",
-  github: "https://github.com/saurabhbhatt",
+  linkedin: "https://www.linkedin.com/in/saurabh-bhatt-3742b3249",
+  github: "https://github.com/xdsaurya",
   resumeUrl: "/Saurabh-Bhatt-Resume.pdf",
   siteUrl: "https://saurabhbhatt.dev",
   domain: "saurabhbhatt.dev",
