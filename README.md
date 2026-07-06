@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Saurabh Bhatt — Portfolio
 
-## Getting Started
+Personal developer portfolio built with Next.js 15 (App Router), TypeScript, Tailwind CSS v4, shadcn/ui, and Framer Motion. Content is sourced from a single data layer so the resume stays consistent across the site.
 
-First, run the development server:
+## Tech stack
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Framework:** Next.js 15 (App Router) + TypeScript
+- **Styling:** Tailwind CSS v4
+- **UI primitives:** shadcn/ui (Base UI under the hood)
+- **Animation:** Framer Motion
+- **Icons:** Lucide React (+ custom inline SVGs for GitHub/LinkedIn)
+- **Theme:** next-themes (dark/light, system-aware)
+
+## Project structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx        # Fonts, ThemeProvider, SEO metadata
+│   ├── page.tsx          # Assembles all sections
+│   ├── globals.css       # Theme tokens, gradients, animation keyframes
+│   ├── sitemap.ts        # Dynamic sitemap
+│   └── robots.ts         # Robots rules
+├── components/
+│   ├── layout/           # Navbar (scroll-spy), Footer
+│   ├── sections/         # Hero, About, Skills, Experience, Projects, Education, Contact
+│   ├── ui/                # shadcn/ui primitives + Reveal, AnimatedBackground, SectionHeading
+│   ├── icons.tsx          # Brand icons lucide-react no longer ships
+│   ├── theme-provider.tsx
+│   └── theme-toggle.tsx
+├── data/
+│   ├── resume.ts          # All resume content — single source of truth
+│   ├── site-config.ts     # Name, tagline, contact links, resume file path
+│   └── nav.ts             # Nav link definitions
+└── lib/
+    └── utils.ts           # cn() class-merge helper
+public/
+└── Saurabh-Bhatt-Resume.pdf   # Downloadable resume
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Getting started
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) to view it.
 
-## Learn More
+Other scripts:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run build   # production build
+npm run start   # serve the production build
+npm run lint    # eslint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Editing content
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Resume content** (experience, projects, skills, education, summary): `src/data/resume.ts`
+- **Contact links & site name/tagline**: `src/data/site-config.ts` — update `email`, `linkedin`, `github`, and `siteUrl` here
+- **Nav links**: `src/data/nav.ts`
+- **Resume PDF**: replace `public/Saurabh-Bhatt-Resume.pdf` and update `resumeUrl` in `site-config.ts` if the filename changes
 
-## Deploy on Vercel
+## Deployment (Netlify)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The repo includes a `netlify.toml` with the `@netlify/plugin-nextjs` plugin pre-configured.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Push the repo to GitHub/GitLab.
+2. In Netlify: **Add new site → Import an existing project**, select the repo.
+3. Netlify picks up `netlify.toml` automatically — no manual build settings required.
+4. Deploy. After the first deploy, update `siteConfig.siteUrl` in `src/data/site-config.ts` to the live domain and redeploy so metadata/sitemap URLs are correct.
