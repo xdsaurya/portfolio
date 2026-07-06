@@ -11,6 +11,6 @@ export const siteConfig = {
   linkedin: "https://www.linkedin.com/in/saurabh-bhatt-3742b3249",
   github: "https://github.com/xdsaurya",
   resumeUrl: "/Saurabh-Bhatt-Resume.pdf",
-  siteUrl: "https://saurabhbhatt.dev",
-  domain: "saurabhbhatt.dev",
+  siteUrl: "https://startling-kringle-c4fadd.netlify.app",
+  domain: "startling-kringle-c4fadd.netlify.app",
 };
